@@ -29,16 +29,23 @@ export async function GET(req: NextRequest) {
 
   const normalizedInput = input.toLowerCase().trim();
   let matchedCategory: string | null = null;
-
-  // Special logic: any input containing 'money' matches Money
-  if (normalizedInput.includes('money')) {
-    matchedCategory = 'Money';
-  } else {
-    for (const [category, keywords] of Object.entries(aliasMap)) {
-      if (keywords.some((keyword: string) => normalizedInput.includes(keyword.toLowerCase()))) {
-        matchedCategory = category;
-        break;
+  // Find all matching categories (case-insensitive, substring match)
+  const inputLower = normalizedInput;
+  const matchedCategories: string[] = [];
+  for (const [category, keywords] of Object.entries(aliasMap)) {
+    for (const keyword of keywords) {
+      if (inputLower.includes(keyword.toLowerCase())) {
+        matchedCategories.push(category);
+        break; // Only need one keyword match per category
       }
+    }
+  }
+  // Prioritize Money if present, else first found
+  if (matchedCategories.length > 0) {
+    if (matchedCategories.includes('Money')) {
+      matchedCategory = 'Money';
+    } else {
+      matchedCategory = matchedCategories[0];
     }
   }
 
@@ -51,12 +58,9 @@ export async function GET(req: NextRequest) {
     whispers[matchedCategory].length > 0
   ) {
     const categoryWhispers = whispers[matchedCategory];
-    // Shuffle whispers to ensure randomness and avoid repeats
-    const shuffled = categoryWhispers
-      .map((w, i) => ({ w, sort: Math.random() }))
-      .sort((a, b) => a.sort - b.sort)
-      .map(({ w }) => w);
-    whisperResponse = shuffled[0];
+    // Pick a random whisper from the matched category
+    const randomIndex = Math.floor(Math.random() * categoryWhispers.length);
+    whisperResponse = categoryWhispers[randomIndex];
   } else {
     // Use fallback.txt content
   try {
