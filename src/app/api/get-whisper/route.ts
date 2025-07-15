@@ -16,16 +16,40 @@ type Whisper = {
 type WhispersMap = Record<string, Whisper[]>;
 const whispers = whispersData as WhispersMap;
 
-// Define tier priorities (adjust based on your needs)
+// Define tier priorities (adjust based on your needs) - CASE INSENSITIVE
 const TIER_PRIORITIES = {
+  'money': 1,
   'Money': 1,
+  'love': 1,
   'Love': 1,
+  'career': 2,
   'Career': 2,
+  'health': 2,
   'Health': 2,
+  'family': 2,
   'Family': 2,
+  'friendship': 3,
   'Friendship': 3,
   // Add more categories and their tiers as needed
 };
+
+// Helper function to get tier priority case-insensitively
+function getTierPriority(category: string): number {
+  // First try exact match
+  if (TIER_PRIORITIES[category as keyof typeof TIER_PRIORITIES]) {
+    return TIER_PRIORITIES[category as keyof typeof TIER_PRIORITIES];
+  }
+  
+  // Try case-insensitive match
+  const lowerCategory = category.toLowerCase();
+  for (const [key, value] of Object.entries(TIER_PRIORITIES)) {
+    if (key.toLowerCase() === lowerCategory) {
+      return value;
+    }
+  }
+  
+  return 999; // Default tier for unknown categories
+}
 
 // Function to check if input is gibberish
 function isGibberish(input: string): boolean {
@@ -64,7 +88,7 @@ function isOffensive(input: string): boolean {
   return offensivePatterns.some(pattern => lowerInput.includes(pattern));
 }
 
-// Function to find matching categories with scoring
+// Function to find matching categories with improved scoring
 function findMatchingCategories(input: string, aliasMap: Record<string, string[]>): Array<{category: string, score: number, tier: number}> {
   const inputLower = input.toLowerCase().trim();
   const matches: Array<{category: string, score: number, tier: number}> = [];
@@ -83,15 +107,24 @@ function findMatchingCategories(input: string, aliasMap: Record<string, string[]
       // Skip empty keywords
       if (!keywordLower) continue;
       
-      // Method 1: Exact phrase match with word boundaries (highest score)
-      const keywordWithBoundaries = ` ${keywordLower} `;
-      if (inputText.includes(keywordWithBoundaries)) {
+      // Method 1: Exact input match (highest priority)
+      if (inputLower === keywordLower) {
         matchedKeywords.add(keyword);
-        score += keywordLower.length > 8 ? 10 : 8; // High score for exact phrase matches
+        score += 15; // Very high score for exact matches
+        console.log(`EXACT MATCH: "${inputLower}" === "${keywordLower}" in category ${category}`);
         continue;
       }
       
-      // Method 2: Multi-word keyword matching
+      // Method 2: Exact phrase match with word boundaries (high score)
+      const keywordWithBoundaries = ` ${keywordLower} `;
+      if (inputText.includes(keywordWithBoundaries)) {
+        matchedKeywords.add(keyword);
+        score += 10; // High score for exact phrase matches
+        console.log(`PHRASE MATCH: "${inputText}" includes "${keywordWithBoundaries}" in category ${category}`);
+        continue;
+      }
+      
+      // Method 3: Multi-word keyword matching
       const keywordWords = keywordLower.split(/\s+/);
       if (keywordWords.length > 1) {
         // For multi-word keywords, check if all words are present
@@ -101,30 +134,40 @@ function findMatchingCategories(input: string, aliasMap: Record<string, string[]
         
         if (allWordsPresent) {
           matchedKeywords.add(keyword);
-          score += 6; // Good score for multi-word matches
+          score += 8; // Good score for multi-word matches
+          console.log(`MULTI-WORD MATCH: "${keywordLower}" in category ${category}`);
           continue;
         }
       }
       
-      // Method 3: Individual word matching with stricter rules
-      const keywordWord = keywordWords[0]; // For single word keywords
+      // Method 4: Individual word matching - SIMPLIFIED AND IMPROVED
       if (keywordWords.length === 1) {
         for (const inputWord of inputWords) {
-          // Exact word match (best)
-          if (inputWord === keywordWord) {
+          // Exact word match (best for single words)
+          if (inputWord === keywordLower) {
             matchedKeywords.add(keyword);
-            score += 5;
+            score += 12; // High score for exact word matches
+            console.log(`WORD MATCH: "${inputWord}" === "${keywordLower}" in category ${category}`);
             break;
           }
           
-          // Partial match only for longer words (4+ chars) to avoid false positives
-          if (keywordWord.length >= 4 && inputWord.length >= 4) {
-            if (inputWord.includes(keywordWord) || keywordWord.includes(inputWord)) {
-              // Additional check: ensure it's not just a common substring
-              const similarity = Math.min(inputWord.length, keywordWord.length) / Math.max(inputWord.length, keywordWord.length);
-              if (similarity > 0.6) { // At least 60% similarity
+          // Special handling for abbreviations and partial matches
+          if (inputWord.length >= 2 && keywordLower.length >= 2) {
+            // Check if input is abbreviation of keyword (like "bf" for "boyfriend")
+            if (keywordLower.startsWith(inputWord) || inputWord.startsWith(keywordLower)) {
+              matchedKeywords.add(keyword);
+              score += 8; // Good score for prefix matches
+              console.log(`PREFIX MATCH: "${inputWord}" matches "${keywordLower}" in category ${category}`);
+              break;
+            }
+            
+            // Check for substring matches
+            if (inputWord.includes(keywordLower) || keywordLower.includes(inputWord)) {
+              const similarity = Math.min(inputWord.length, keywordLower.length) / Math.max(inputWord.length, keywordLower.length);
+              if (similarity > 0.4) { // Further reduced threshold
                 matchedKeywords.add(keyword);
-                score += 2;
+                score += 4; // Moderate score for partial matches
+                console.log(`SUBSTRING MATCH: "${inputWord}" matches "${keywordLower}" in category ${category}, similarity: ${similarity}`);
                 break;
               }
             }
@@ -134,43 +177,80 @@ function findMatchingCategories(input: string, aliasMap: Record<string, string[]
     }
     
     if (score > 0) {
-      const tier = TIER_PRIORITIES[category as keyof typeof TIER_PRIORITIES] || 999;
+      const tier = getTierPriority(category);
       matches.push({ category, score, tier });
+      console.log(`Category ${category} scored ${score} points with tier ${tier}`);
     }
   }
   
+  console.log(`Total matches found: ${matches.length}`);
   return matches;
 }
 
-// Function to select best matching category
+// Function to select best matching category - IMPROVED
 function selectBestCategory(matches: Array<{category: string, score: number, tier: number}>): string | null {
-  if (matches.length === 0) return null;
+  console.log('Selecting best category from matches:', matches);
   
-  // Filter out weak matches (score < 3 to avoid false positives)
-  const strongMatches = matches.filter(match => match.score >= 3);
-  
-  if (strongMatches.length === 0) return null;
-  
-  // Sort by tier (lower is better), then by score (higher is better)
-  strongMatches.sort((a, b) => {
-    if (a.tier !== b.tier) {
-      return a.tier - b.tier; // Lower tier wins
-    }
-    return b.score - a.score; // Higher score wins
-  });
-  
-  return strongMatches[0].category;
-}
-
-// Function to get random whisper from category
-function getRandomWhisper(category: string, whispers: WhispersMap): Whisper | null {
-  if (!whispers[category] || !Array.isArray(whispers[category]) || whispers[category].length === 0) {
+  if (matches.length === 0) {
+    console.log('No matches found');
     return null;
   }
   
-  const categoryWhispers = whispers[category];
-  const randomIndex = Math.floor(Math.random() * categoryWhispers.length);
-  return categoryWhispers[randomIndex];
+  // Lower threshold to 1 for very permissive matching
+  const strongMatches = matches.filter(match => match.score >= 1);
+  console.log('Strong matches (score >= 1):', strongMatches);
+  
+  if (strongMatches.length === 0) {
+    console.log('No strong matches, trying highest scoring match');
+    const highestScore = Math.max(...matches.map(m => m.score));
+    const bestMatches = matches.filter(m => m.score === highestScore);
+    console.log('Best matches by score:', bestMatches);
+    if (bestMatches.length > 0) {
+      return bestMatches[0].category;
+    }
+    return null;
+  }
+  
+  // Sort by score first (higher is better), then by tier (lower is better)
+  strongMatches.sort((a, b) => {
+    if (a.score !== b.score) {
+      return b.score - a.score; // Higher score wins
+    }
+    return a.tier - b.tier; // Lower tier wins
+  });
+  
+  console.log('Selected category:', strongMatches[0].category);
+  return strongMatches[0].category;
+}
+
+// Function to get random whisper from category - CASE INSENSITIVE
+function getRandomWhisper(category: string, whispers: WhispersMap): Whisper | null {
+  console.log(`Looking for whispers in category: "${category}"`);
+  console.log('Available whisper categories:', Object.keys(whispers));
+  
+  // First try exact match
+  if (whispers[category] && Array.isArray(whispers[category]) && whispers[category].length > 0) {
+    const categoryWhispers = whispers[category];
+    const randomIndex = Math.floor(Math.random() * categoryWhispers.length);
+    console.log(`Found ${categoryWhispers.length} whispers in category "${category}", selected index ${randomIndex}`);
+    return categoryWhispers[randomIndex];
+  }
+  
+  // If exact match fails, try case-insensitive search
+  const lowerCategory = category.toLowerCase();
+  for (const [key, value] of Object.entries(whispers)) {
+    if (key.toLowerCase() === lowerCategory) {
+      console.log(`Found case-insensitive match: "${key}" for "${category}"`);
+      if (Array.isArray(value) && value.length > 0) {
+        const randomIndex = Math.floor(Math.random() * value.length);
+        console.log(`Found ${value.length} whispers in category "${key}", selected index ${randomIndex}`);
+        return value[randomIndex];
+      }
+    }
+  }
+  
+  console.log(`No whispers found for category "${category}" (case-insensitive search failed)`);
+  return null;
 }
 
 // Function to get fallback whisper
@@ -179,18 +259,14 @@ function getFallbackWhisper(inputType: 'gibberish' | 'offensive' | 'unknown'): W
     const fallbackPath = path.join(process.cwd(), 'data', 'fallback.txt');
     const fallbackData = JSON.parse(fs.readFileSync(fallbackPath, 'utf8'));
     
-    // For now, using the same fallback for all types
-    // You can create separate fallback files for different types if needed
     if (Array.isArray(fallbackData) && fallbackData.length > 0) {
       const randomIndex = Math.floor(Math.random() * fallbackData.length);
       return fallbackData[randomIndex];
     }
     
-    // If fallback data is malformed, return a default
     return fallbackData;
   } catch (error) {
     console.error('Error reading fallback data:', error);
-    // Return a hardcoded fallback as last resort
     return {
       mirror: "I hear you, and I'm here to help.",
       whisper_start: "This isn't about finding the right words. It's about...",
@@ -239,13 +315,11 @@ export async function GET(req: NextRequest) {
         whisperResponse = whisper;
         categoryUsed = bestCategory;
       } else {
-        // Category exists but no whispers available
         whisperResponse = getFallbackWhisper('unknown');
         categoryUsed = 'fallback_no_whispers';
         fallbackReason = 'no_whispers_in_category';
       }
     } else {
-      // No matching category found
       whisperResponse = getFallbackWhisper('unknown');
       categoryUsed = 'fallback_unknown';
       fallbackReason = 'no_category_match';
