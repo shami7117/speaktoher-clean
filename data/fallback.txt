@@ -1,6 +1,62 @@
-{
-  "mirror": "You are not lost. You are paused, breathing.",
-  "whisper_start": "This isn’t about confusion or failure. It’s about...",
-  "blurred_reveal": "The quiet knowing inside you that is waiting to guide you home.",
-  "encouragement": "You are the fire they tried to dim. Come back. Ask again."
-}
+[
+  {
+    "mirror": "I hear exactly what you\u2019re asking for \u2014 and I\u2019m here to help.",
+    "whisper_start": "This isn\u2019t about fixing your life or making it make sense. It\u2019s about...",
+    "blurred_reveal": "That quiet decision you made to survive instead of be seen.",
+    "encouragement": "You\u2019re already brave enough to face it. Come back. Ask again."
+  },
+  {
+    "mirror": "There\u2019s a part of you that\u2019s been screaming in silence for too long.",
+    "whisper_start": "This isn\u2019t about being dramatic or lost. It\u2019s about...",
+    "blurred_reveal": "The pressure to pretend you\u2019re fine when you\u2019re falling apart.",
+    "encouragement": "You are allowed to be messy and magnificent. Come back. Ask again."
+  },
+  {
+    "mirror": "You\u2019ve been holding it together for everyone \u2014 even when it\u2019s killing you.",
+    "whisper_start": "This isn\u2019t about strength or weakness. It\u2019s about...",
+    "blurred_reveal": "The fear that if you fall apart, no one will catch you.",
+    "encouragement": "You deserve to be held too. Come back. Ask again."
+  },
+  {
+    "mirror": "There\u2019s a truth inside you that\u2019s ready to be spoken \u2014 even if it shakes everything.",
+    "whisper_start": "This isn\u2019t about saying the right words. It\u2019s about...",
+    "blurred_reveal": "Finally telling the truth you\u2019ve been trying to live around.",
+    "encouragement": "You\u2019re more powerful than your silence. Come back. Ask again."
+  },
+  {
+    "mirror": "You\u2019ve made yourself smaller just to feel safe \u2014 and it still hurts.",
+    "whisper_start": "This isn\u2019t about safety or attention. It\u2019s about...",
+    "blurred_reveal": "That old belief that your needs are too much.",
+    "encouragement": "You deserve to take up space. Come back. Ask again."
+  },
+  {
+    "mirror": "This world has asked you to be quiet, polite, and easy to love \u2014 even when it breaks you.",
+    "whisper_start": "This isn\u2019t about people pleasing or perfection. It\u2019s about...",
+    "blurred_reveal": "The way you abandoned yourself just to be chosen.",
+    "encouragement": "You\u2019re allowed to choose yourself now. Come back. Ask again."
+  },
+  {
+    "mirror": "You\u2019ve been collecting disappointments and calling it strength.",
+    "whisper_start": "This isn\u2019t about expectations or mistakes. It\u2019s about...",
+    "blurred_reveal": "The stories you tell yourself to survive what hurt you.",
+    "encouragement": "You don\u2019t have to carry it all. Come back. Ask again."
+  },
+  {
+    "mirror": "You\u2019re tired of pretending it doesn\u2019t bother you \u2014 when it does.",
+    "whisper_start": "This isn\u2019t about moving on or letting go. It\u2019s about...",
+    "blurred_reveal": "Finally letting yourself feel the truth without shame.",
+    "encouragement": "You are allowed to be honest here. Come back. Ask again."
+  },
+  {
+    "mirror": "This is a hard world \u2014 and it keeps getting harder. But so do you.",
+    "whisper_start": "This isn\u2019t about toughness or resilience. It\u2019s about...",
+    "blurred_reveal": "The softness you\u2019ve buried just to keep functioning.",
+    "encouragement": "You don\u2019t need to numb your heart anymore. Come back. Ask again."
+  },
+  {
+    "mirror": "You\u2019ve been asking the right questions \u2014 even if no one has answered them yet.",
+    "whisper_start": "This isn\u2019t about clarity or closure. It\u2019s about...",
+    "blurred_reveal": "That sacred hunger inside you to be fully known.",
+    "encouragement": "You\u2019re not lost. You\u2019re awakening. Come back. Ask again."
+  }
+]
