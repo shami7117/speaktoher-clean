@@ -1,0 +1,802 @@
+{
+  "Love": [
+    {
+      "mirror": "You brought up love.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Love shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around love.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Heartbreak": [
+    {
+      "mirror": "You brought up heartbreak.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Heartbreak shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around heartbreak.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Cheating": [
+    {
+      "mirror": "You brought up cheating.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Cheating shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around cheating.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Situationships": [
+    {
+      "mirror": "You brought up situationships.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Situationships shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around situationships.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Loneliness": [
+    {
+      "mirror": "You brought up loneliness.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Loneliness shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around loneliness.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Trust": [
+    {
+      "mirror": "You brought up trust.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Trust shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around trust.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Closure": [
+    {
+      "mirror": "You brought up closure.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Closure shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around closure.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Confidence": [
+    {
+      "mirror": "You brought up confidence.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Confidence shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around confidence.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Insecurity": [
+    {
+      "mirror": "You brought up insecurity.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Insecurity shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around insecurity.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Worth": [
+    {
+      "mirror": "You brought up worth.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Worth shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around worth.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Change": [
+    {
+      "mirror": "You brought up change.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Change shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around change.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Body": [
+    {
+      "mirror": "You brought up body.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Body shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around body.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Aging": [
+    {
+      "mirror": "You brought up aging.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Aging shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around aging.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Shame": [
+    {
+      "mirror": "You brought up shame.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Shame shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around shame.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Power": [
+    {
+      "mirror": "You brought up power.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Power shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around power.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Grief": [
+    {
+      "mirror": "You brought up grief.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Grief shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around grief.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Trauma": [
+    {
+      "mirror": "You brought up trauma.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Trauma shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around trauma.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Healing": [
+    {
+      "mirror": "You brought up healing.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Healing shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around healing.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Anger": [
+    {
+      "mirror": "You brought up anger.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Anger shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around anger.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Regret": [
+    {
+      "mirror": "You brought up regret.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Regret shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around regret.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Forgiveness": [
+    {
+      "mirror": "You brought up forgiveness.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Forgiveness shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around forgiveness.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Fear": [
+    {
+      "mirror": "You brought up fear.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Fear shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around fear.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Letting Go": [
+    {
+      "mirror": "You brought up letting go.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Letting Go shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around letting go.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Clarity": [
+    {
+      "mirror": "You brought up clarity.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Clarity shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around clarity.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Growth": [
+    {
+      "mirror": "You brought up growth.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Growth shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around growth.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Direction": [
+    {
+      "mirror": "You brought up direction.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Direction shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around direction.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Motivation": [
+    {
+      "mirror": "You brought up motivation.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Motivation shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around motivation.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Energy": [
+    {
+      "mirror": "You brought up energy.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Energy shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around energy.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Success": [
+    {
+      "mirror": "You brought up success.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Success shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around success.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Fear of Failure": [
+    {
+      "mirror": "You brought up fear of failure.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Fear of Failure shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around fear of failure.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Money": [
+    {
+      "mirror": "You brought up money.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Money shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around money.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Work": [
+    {
+      "mirror": "You brought up work.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Work shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around work.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Ambition": [
+    {
+      "mirror": "You brought up ambition.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Ambition shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around ambition.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Burnout": [
+    {
+      "mirror": "You brought up burnout.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Burnout shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around burnout.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Jealousy": [
+    {
+      "mirror": "You brought up jealousy.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Jealousy shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around jealousy.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Control": [
+    {
+      "mirror": "You brought up control.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Control shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around control.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Family": [
+    {
+      "mirror": "You brought up family.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Family shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around family.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Friendship": [
+    {
+      "mirror": "You brought up friendship.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Friendship shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around friendship.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "The Past": [
+    {
+      "mirror": "You brought up the past.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "The Past shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around the past.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ],
+  "Secrets": [
+    {
+      "mirror": "You brought up secrets.",
+      "whisper_start": "It\u2019s not just you. That weight is real.",
+      "blurred_reveal": "You\u2019re allowed to feel this and still want more.",
+      "encouragement": "Hold on. You\u2019re not done yet."
+    },
+    {
+      "mirror": "Secrets shows up when you least expect it.",
+      "whisper_start": "Some truths hurt because they matter.",
+      "blurred_reveal": "What you carry is proof you\u2019re alive.",
+      "encouragement": "Don\u2019t rush. Healing has its own clock."
+    },
+    {
+      "mirror": "Something in you is stirring around secrets.",
+      "whisper_start": "You\u2019re not broken \u2014 you\u2019re becoming.",
+      "blurred_reveal": "It\u2019s okay if today is just survival.",
+      "encouragement": "Stillness is not failure."
+    }
+  ]
+}

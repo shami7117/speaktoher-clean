@@ -1,0 +1,6 @@
+{
+  "mirror": "You are not lost. You are paused, breathing.",
+  "whisper_start": "This isn’t about confusion or failure. It’s about...",
+  "blurred_reveal": "The quiet knowing inside you that is waiting to guide you home.",
+  "encouragement": "You are the fire they tried to dim. Come back. Ask again."
+}
