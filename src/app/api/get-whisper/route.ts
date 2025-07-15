@@ -30,10 +30,15 @@ export async function GET(req: NextRequest) {
   const normalizedInput = input.toLowerCase().trim();
   let matchedCategory: string | null = null;
 
-  for (const [category, keywords] of Object.entries(aliasMap)) {
-    if (keywords.some((keyword: string) => normalizedInput.includes(keyword.toLowerCase()))) {
-      matchedCategory = category;
-      break;
+  // Special logic: any input containing 'money' matches Money
+  if (normalizedInput.includes('money')) {
+    matchedCategory = 'Money';
+  } else {
+    for (const [category, keywords] of Object.entries(aliasMap)) {
+      if (keywords.some((keyword: string) => normalizedInput.includes(keyword.toLowerCase()))) {
+        matchedCategory = category;
+        break;
+      }
     }
   }
 
@@ -46,8 +51,12 @@ export async function GET(req: NextRequest) {
     whispers[matchedCategory].length > 0
   ) {
     const categoryWhispers = whispers[matchedCategory];
-    const randomIndex = Math.floor(Math.random() * categoryWhispers.length);
-    whisperResponse = categoryWhispers[randomIndex];
+    // Shuffle whispers to ensure randomness and avoid repeats
+    const shuffled = categoryWhispers
+      .map((w, i) => ({ w, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(({ w }) => w);
+    whisperResponse = shuffled[0];
   } else {
     // Use fallback.txt content
   try {
