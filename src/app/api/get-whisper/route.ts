@@ -16,12 +16,14 @@ type Whisper = {
 type WhispersMap = Record<string, Whisper[]>;
 const whispers = whispersData as WhispersMap;
 
-// Define tier priorities (adjust based on your needs) - CASE INSENSITIVE
+// Updated TIER_PRIORITIES - make love higher priority than control
 const TIER_PRIORITIES = {
   'money': 1,
   'Money': 1,
   'love': 1,
   'Love': 1,
+  'control': 2,    // Move control to tier 2
+  'Control': 2,
   'career': 2,
   'Career': 2,
   'health': 2,
@@ -32,7 +34,6 @@ const TIER_PRIORITIES = {
   'Friendship': 3,
   // Add more categories and their tiers as needed
 };
-
 // Helper function to get tier priority case-insensitively
 function getTierPriority(category: string): number {
   // First try exact match
@@ -88,7 +89,7 @@ function isOffensive(input: string): boolean {
   return offensivePatterns.some(pattern => lowerInput.includes(pattern));
 }
 
-// Function to find matching categories with improved scoring
+// Updated findMatchingCategories function with better context-aware scoring
 function findMatchingCategories(input: string, aliasMap: Record<string, string[]>): Array<{category: string, score: number, tier: number}> {
   const inputLower = input.toLowerCase().trim();
   const matches: Array<{category: string, score: number, tier: number}> = [];
@@ -99,6 +100,7 @@ function findMatchingCategories(input: string, aliasMap: Record<string, string[]
   
   for (const [category, keywords] of Object.entries(aliasMap)) {
     let score = 0;
+    let bestMatchType = '';
     const matchedKeywords = new Set<string>();
     
     for (const keyword of keywords) {
@@ -110,7 +112,8 @@ function findMatchingCategories(input: string, aliasMap: Record<string, string[]
       // Method 1: Exact input match (highest priority)
       if (inputLower === keywordLower) {
         matchedKeywords.add(keyword);
-        score += 15; // Very high score for exact matches
+        score += 20; // Increased score for exact matches
+        bestMatchType = 'exact';
         console.log(`EXACT MATCH: "${inputLower}" === "${keywordLower}" in category ${category}`);
         continue;
       }
@@ -119,7 +122,8 @@ function findMatchingCategories(input: string, aliasMap: Record<string, string[]
       const keywordWithBoundaries = ` ${keywordLower} `;
       if (inputText.includes(keywordWithBoundaries)) {
         matchedKeywords.add(keyword);
-        score += 10; // High score for exact phrase matches
+        score += 15; // High score for exact phrase matches
+        if (bestMatchType !== 'exact') bestMatchType = 'phrase';
         console.log(`PHRASE MATCH: "${inputText}" includes "${keywordWithBoundaries}" in category ${category}`);
         continue;
       }
@@ -134,20 +138,37 @@ function findMatchingCategories(input: string, aliasMap: Record<string, string[]
         
         if (allWordsPresent) {
           matchedKeywords.add(keyword);
-          score += 8; // Good score for multi-word matches
+          score += 12; // Good score for multi-word matches
+          if (!bestMatchType || bestMatchType === 'partial') bestMatchType = 'multi-word';
           console.log(`MULTI-WORD MATCH: "${keywordLower}" in category ${category}`);
           continue;
         }
       }
       
-      // Method 4: Individual word matching - SIMPLIFIED AND IMPROVED
+      // Method 4: Individual word matching with context awareness
       if (keywordWords.length === 1) {
         for (const inputWord of inputWords) {
           // Exact word match (best for single words)
           if (inputWord === keywordLower) {
             matchedKeywords.add(keyword);
-            score += 12; // High score for exact word matches
-            console.log(`WORD MATCH: "${inputWord}" === "${keywordLower}" in category ${category}`);
+            
+            // Context-aware scoring for ambiguous words
+            let wordScore = 12; // Base score for exact word matches
+            
+            // Special handling for "man" - boost score for love-related contexts
+            if (keywordLower === 'man' && category.toLowerCase() === 'love') {
+              // Look for love-related context words in the input
+              const loveContext = ['need', 'want', 'looking for', 'find', 'meet', 'date', 'relationship'];
+              const hasLoveContext = loveContext.some(ctx => inputLower.includes(ctx));
+              if (hasLoveContext) {
+                wordScore += 5; // Boost score for love context
+                console.log(`LOVE CONTEXT BOOST: "${inputWord}" in "${inputLower}" for category ${category}`);
+              }
+            }
+            
+            score += wordScore;
+            if (!bestMatchType || bestMatchType === 'partial') bestMatchType = 'word';
+            console.log(`WORD MATCH: "${inputWord}" === "${keywordLower}" in category ${category}, score: ${wordScore}`);
             break;
           }
           
@@ -157,6 +178,7 @@ function findMatchingCategories(input: string, aliasMap: Record<string, string[]
             if (keywordLower.startsWith(inputWord) || inputWord.startsWith(keywordLower)) {
               matchedKeywords.add(keyword);
               score += 8; // Good score for prefix matches
+              if (!bestMatchType) bestMatchType = 'partial';
               console.log(`PREFIX MATCH: "${inputWord}" matches "${keywordLower}" in category ${category}`);
               break;
             }
@@ -164,9 +186,10 @@ function findMatchingCategories(input: string, aliasMap: Record<string, string[]
             // Check for substring matches
             if (inputWord.includes(keywordLower) || keywordLower.includes(inputWord)) {
               const similarity = Math.min(inputWord.length, keywordLower.length) / Math.max(inputWord.length, keywordLower.length);
-              if (similarity > 0.4) { // Further reduced threshold
+              if (similarity > 0.4) {
                 matchedKeywords.add(keyword);
                 score += 4; // Moderate score for partial matches
+                if (!bestMatchType) bestMatchType = 'partial';
                 console.log(`SUBSTRING MATCH: "${inputWord}" matches "${keywordLower}" in category ${category}, similarity: ${similarity}`);
                 break;
               }
@@ -179,7 +202,7 @@ function findMatchingCategories(input: string, aliasMap: Record<string, string[]
     if (score > 0) {
       const tier = getTierPriority(category);
       matches.push({ category, score, tier });
-      console.log(`Category ${category} scored ${score} points with tier ${tier}`);
+      console.log(`Category ${category} scored ${score} points with tier ${tier}, best match type: ${bestMatchType}`);
     }
   }
   
@@ -187,7 +210,7 @@ function findMatchingCategories(input: string, aliasMap: Record<string, string[]
   return matches;
 }
 
-// Function to select best matching category - IMPROVED
+// Updated selectBestCategory function with better tie-breaking
 function selectBestCategory(matches: Array<{category: string, score: number, tier: number}>): string | null {
   console.log('Selecting best category from matches:', matches);
   
@@ -196,9 +219,9 @@ function selectBestCategory(matches: Array<{category: string, score: number, tie
     return null;
   }
   
-  // Lower threshold to 1 for very permissive matching
-  const strongMatches = matches.filter(match => match.score >= 1);
-  console.log('Strong matches (score >= 1):', strongMatches);
+  // Filter for meaningful matches (score >= 4)
+  const strongMatches = matches.filter(match => match.score >= 4);
+  console.log('Strong matches (score >= 4):', strongMatches);
   
   if (strongMatches.length === 0) {
     console.log('No strong matches, trying highest scoring match');
@@ -216,7 +239,7 @@ function selectBestCategory(matches: Array<{category: string, score: number, tie
     if (a.score !== b.score) {
       return b.score - a.score; // Higher score wins
     }
-    return a.tier - b.tier; // Lower tier wins
+    return a.tier - b.tier; // Lower tier wins (more important categories)
   });
   
   console.log('Selected category:', strongMatches[0].category);
