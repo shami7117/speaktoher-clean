@@ -354,7 +354,7 @@ export async function GET(req: NextRequest) {
     category: categoryUsed,
     whisper: whisperResponse,
     ...(fallbackReason && { fallback_reason: fallbackReason }),
-    ...(process.env.NODE_ENV === 'development' && {
+    ...(process.env.NODE_ENV === 'production' && {
       debug: {
         matches: findMatchingCategories(normalizedInput, aliasMap),
         is_gibberish: isGibberish(normalizedInput),
