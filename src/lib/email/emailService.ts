@@ -12,6 +12,17 @@ export class EmailService {
     attachments: EmailAttachment[] = []
   ): Promise<EmailResponse> {
     try {
+      // Debug logging
+      console.log("🔍 Email Debug Info:", {
+        templateId,
+        to,
+        templateData,
+        fromEmail: EMAIL_CONFIG.fromEmail,
+        replyTo: EMAIL_CONFIG.replyTo,
+        hasApiToken: !!process.env.POSTMARK_API_TOKEN,
+        environment: process.env.NODE_ENV,
+      })
+
       const response = await postmarkClient.sendEmailWithTemplate({
         TemplateId: parseInt(templateId),
         TemplateModel: templateData,
@@ -26,12 +37,24 @@ export class EmailService {
         })),
       })
 
+      console.log("✅ Email sent successfully:", {
+        messageId: response.MessageID,
+        to,
+        templateId,
+      })
+
       return {
         success: true,
         messageId: response.MessageID,
       }
     } catch (error) {
-      console.error("Error sending template email:", error)
+      console.error("❌ Error sending template email:", {
+        error: error instanceof Error ? error.message : error,
+        templateId,
+        to,
+        stack: error instanceof Error ? error.stack : undefined,
+      })
+      
       return {
         success: false,
         error: error instanceof Error ? error.message : "Failed to send email",
@@ -50,6 +73,14 @@ export class EmailService {
     attachments: EmailAttachment[] = []
   ): Promise<EmailResponse> {
     try {
+      console.log("🔍 Text Email Debug Info:", {
+        to,
+        subject,
+        fromEmail: EMAIL_CONFIG.fromEmail,
+        hasApiToken: !!process.env.POSTMARK_API_TOKEN,
+        environment: process.env.NODE_ENV,
+      })
+
       const response = await postmarkClient.sendEmail({
         From: EMAIL_CONFIG.fromEmail,
         To: to,
@@ -65,12 +96,24 @@ export class EmailService {
         })),
       })
 
+      console.log("✅ Text email sent successfully:", {
+        messageId: response.MessageID,
+        to,
+        subject,
+      })
+
       return {
         success: true,
         messageId: response.MessageID,
       }
     } catch (error) {
-      console.error("Error sending text email:", error)
+      console.error("❌ Error sending text email:", {
+        error: error instanceof Error ? error.message : error,
+        to,
+        subject,
+        stack: error instanceof Error ? error.stack : undefined,
+      })
+      
       return {
         success: false,
         error: error instanceof Error ? error.message : "Failed to send email",
@@ -83,6 +126,13 @@ export class EmailService {
    */
   static async sendBatchEmails(emails: EmailData[]): Promise<EmailResponse[]> {
     try {
+      console.log("🔍 Batch Email Debug Info:", {
+        emailCount: emails.length,
+        fromEmail: EMAIL_CONFIG.fromEmail,
+        hasApiToken: !!process.env.POSTMARK_API_TOKEN,
+        environment: process.env.NODE_ENV,
+      })
+
       const batchEmails = emails.map((email) => ({
         From: EMAIL_CONFIG.fromEmail,
         To: email.to,
@@ -101,13 +151,24 @@ export class EmailService {
 
       const response = await postmarkClient.sendEmailBatch(batchEmails)
 
+      console.log("✅ Batch emails sent:", {
+        totalEmails: response.length,
+        successCount: response.filter(r => r.ErrorCode === 0).length,
+        errorCount: response.filter(r => r.ErrorCode !== 0).length,
+      })
+
       return response.map((result, index) => ({
         success: result.ErrorCode === 0,
         messageId: result.MessageID,
         error: result.ErrorCode !== 0 ? result.Message : undefined,
       }))
     } catch (error) {
-      console.error("Error sending batch emails:", error)
+      console.error("❌ Error sending batch emails:", {
+        error: error instanceof Error ? error.message : error,
+        emailCount: emails.length,
+        stack: error instanceof Error ? error.stack : undefined,
+      })
+      
       return emails.map(() => ({
         success: false,
         error:
@@ -123,7 +184,6 @@ export class EmailService {
    */
   static async verifyEmail(email: string): Promise<boolean> {
     try {
-      // This is a basic validation - you might want to use a more robust email validation library
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
       return emailRegex.test(email)
     } catch (error) {
