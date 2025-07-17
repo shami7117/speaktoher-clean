@@ -25,6 +25,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
   const [customerName, setCustomerName] = useState("")
   const [customerEmail, setCustomerEmail] = useState("")
   const [whisper, setWhisper] = useState("")
+  const [paymentCompleted, setPaymentCompleted] = useState(false)
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -71,7 +72,6 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
         await stripe.confirmPayment({
           elements,
           confirmParams: {
-            return_url: `${window.location.origin}?payment_success=true&customer_id=${customerId}`,
             payment_method_data: {
               billing_details: {
                 name: customerName,
@@ -79,7 +79,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
               },
             },
           },
-          redirect: "always",
+          redirect: "if_required",
         })
 
       if (confirmPaymentError) {
@@ -87,9 +87,11 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
           confirmPaymentError.message || "An error occurred during payment"
         setMessage(errorMsg)
         onError?.(errorMsg)
-      } else {
+      } else if (paymentIntent && paymentIntent.status === "succeeded") {
         // Track successful purchase
         trackPurchase(9.0, "USD", "divine_message")
+        setPaymentCompleted(true)
+        onSuccess?.(paymentIntent)
       }
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : "Payment failed"
@@ -98,6 +100,111 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
     } finally {
       setIsProcessing(false)
     }
+  }
+
+  // Show success message after payment is completed
+  if (paymentCompleted) {
+    return (
+      <div className='w-full max-w-xl mx-auto'>
+        <div className='text-center space-y-6'>
+          {/* Success Icon */}
+          <div className='flex justify-center mb-6'>
+            <div className='w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center'>
+              <svg
+                className='w-8 h-8 text-green-400'
+                fill='none'
+                stroke='currentColor'
+                viewBox='0 0 24 24'
+                xmlns='http://www.w3.org/2000/svg'>
+                <path
+                  strokeLinecap='round'
+                  strokeLinejoin='round'
+                  strokeWidth='2'
+                  d='M5 13l4 4L19 7'></path>
+              </svg>
+            </div>
+          </div>
+
+          {/* Success Message */}
+          <div className='space-y-4'>
+            <h2
+              className='text-2xl font-bold text-white'
+              style={{
+                textShadow: "0 0 8px rgba(255, 255, 255, 0.2)",
+                background: "linear-gradient(135deg, #fff, #a889ff, #fff)",
+                backgroundSize: "200% 200%",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                animation: "shimmer 3s ease-in-out infinite",
+              }}>
+              ✨ Payment Successful!
+            </h2>
+            
+            <p className='text-lg text-white/90 font-medium'>
+              Your divine message is on its way!
+            </p>
+            
+            <div className='bg-white/5 border border-white/20 rounded-lg p-6 backdrop-blur-sm space-y-3'>
+              <div className='flex items-center justify-center mb-3'>
+                <svg
+                  className='w-5 h-5 text-purple-400 mr-2'
+                  fill='currentColor'
+                  viewBox='0 0 20 20'>
+                  <path d='M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z' />
+                  <path d='M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z' />
+                </svg>
+                <span className='text-white/90 font-medium'>Check Your Email</span>
+              </div>
+              
+              <p className='text-white/80 text-sm leading-relaxed'>
+                Your personalized divine message has been sent to:<br />
+                <span className='text-white font-medium'>{customerEmail}</span>
+              </p>
+              
+              <div className='bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-3 mt-4'>
+                <div className='flex items-center justify-center mb-2'>
+                  <svg
+                    className='w-4 h-4 text-yellow-400 mr-2'
+                    fill='currentColor'
+                    viewBox='0 0 20 20'>
+                    <path
+                      fillRule='evenodd'
+                      d='M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z'
+                      clipRule='evenodd'
+                    />
+                  </svg>
+                  <span className='text-yellow-400 font-medium text-sm'>Important</span>
+                </div>
+                <p className='text-yellow-200/90 text-xs'>
+                  If you don't see the email in your inbox within a few minutes, 
+                  <strong> please check your spam/junk folder</strong>. 
+                  Sometimes divine messages can end up there!
+                </p>
+              </div>
+            </div>
+
+            <div className='text-center pt-4'>
+              <p className='text-white/70 text-sm italic'>
+                Thank you for your sacred exchange. May your message bring you clarity and peace. 🙏
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <style jsx>{`
+          @keyframes shimmer {
+            0%,
+            100% {
+              background-position: 0% 50%;
+            }
+            50% {
+              background-position: 100% 50%;
+            }
+          }
+        `}</style>
+      </div>
+    )
   }
 
   return (

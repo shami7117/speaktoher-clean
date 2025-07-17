@@ -393,8 +393,8 @@ const PaywallSection = ({
     if (!showCta || paymentSuccess || isMember) return null
 
     return (
-      <div
-        className='integrated-cta-section'
+    <div
+        className='integrated-cta-section flex items-center justify-center  h-auto'
         style={{
           opacity: ctaOpacity,
           transition: "opacity 4s ease-in-out",
@@ -423,7 +423,7 @@ const PaywallSection = ({
               <li>🕊️ Personal divine interpretation</li>
             </ul>
           </div>
-          <div className='text-center'>
+          <div className='text-center mb-8'>
             <button
               type='button'
               className='unlock-btn integrated-unlock-btn bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white py-4 px-8 rounded-2xl font-bold shadow-lg hover:shadow-xl transition-all duration-200'
@@ -438,6 +438,13 @@ const PaywallSection = ({
               disabled={isUnlocked}>
               {isUnlocked ? "Unlocking..." : "Yes — Show me Her words ✨"}
             </button>
+          </div>
+          
+          {/* Refund Policy Section - Separated and properly spaced */}
+          <div className="refund-policy">
+            <p >
+              Due to the personal and irreversible nature of this experience, all purchases are final — including single messages, subscriptions, and lifetime access.
+            </p>
           </div>
         </div>
       </div>
