@@ -25,6 +25,39 @@ interface PaywallSectionProps {
   isMember: boolean
 }
 
+
+
+// Email Notification Component
+const EmailNotification = ({ isVisible, onClose }: { isVisible: boolean; onClose: () => void }) => {
+  if (!isVisible) return null
+  return (
+    <div className="fixed top-4 right-4 bg-green-600 text-white p-4 rounded-lg shadow-lg z-50 max-w-sm animate-slide-in">
+      <div className="flex items-start justify-between">
+        <div className="flex items-center">
+          <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+          </svg>
+          <div>
+            <p className="font-medium text-sm">Email Sent Successfully!</p>
+            <p className="text-xs text-green-100 mt-1">
+              Your divine message has been sent to your email. Please check your inbox and spam folder.
+            </p>
+          </div>
+        </div>
+        <button
+          onClick={onClose}
+          className="text-green-100 hover:text-white ml-2 flex-shrink-0"
+        >
+          <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  )
+}
+
+
 const PaywallSection = ({
   isVisible,
   testimonials,
@@ -46,6 +79,7 @@ const PaywallSection = ({
   const [showMysticalElements, setShowMysticalElements] = useState(false)
   const [ctaOpacity, setCtaOpacity] = useState(0)
   const [paymentSuccess, setPaymentSuccess] = useState(isPaid)
+  const [showEmailNotification, setShowEmailNotification] = useState(false)
 
   // Upsell state
   const [showUpsell, setShowUpsell] = useState(false)
@@ -92,6 +126,18 @@ const PaywallSection = ({
       trackViewContent(9.0, "USD", "divine_message")
     }
   }, [divineResponse, isVisible, isMember, trackViewContent])
+
+  // Show email notification when payment is successful
+  useEffect(() => {
+    if (paymentSuccess && !isMember) {
+      setShowEmailNotification(true)
+      // Auto-hide after 5 seconds
+      const timer = setTimeout(() => {
+        setShowEmailNotification(false)
+      }, 5000)
+      return () => clearTimeout(timer)
+    }
+  }, [paymentSuccess, isMember])
 
   // Upsell handler functions
   const handleCreateCheckout = async (
@@ -456,7 +502,20 @@ const PaywallSection = ({
 
     return (
       <div className='text-center transition-all duration-1000 w-full'>
-        <h2 className='text-3xl font-bold'>She isn't done with you yet...</h2>
+         {/* Show email notification as a content box above upsell section */}
+      { paymentSuccess && !isMember && (
+
+          <div className="flex items-center justify-center">
+           <div           style={{ marginLeft: "auto", marginRight: "auto" }}
+className=" flex   flex-col items-center">
+                <h2 className='text-3xl font-bold'>Email Sent Successfully!</h2>
+                <p           className='w-full text-center mb-10 opacity-80 text- leading-relaxed'>
+                  Your divine message has been sent to your email. Please check your inbox and spam folder.
+                </p>
+              </div>
+          </div>
+      )}
+        <h2 className='text-3xl font-bold' style={{marginTop:"20px"}}>She isn't done with you yet...</h2>
         <p
           style={{ marginLeft: "auto", marginRight: "auto" }}
           className='w-full text-center mb-10 opacity-80 text- leading-relaxed'>
@@ -680,6 +739,7 @@ const PaywallSection = ({
         }
         message='Are you sure you want to leave? Your divine response will be lost.'
       />
+     
       <div
         className={`paywall ${isVisible ? "visible" : ""}`}
         id='paywall'
