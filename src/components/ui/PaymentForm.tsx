@@ -127,17 +127,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
 
           {/* Success Message */}
           <div className='space-y-4'>
-            <h2
-              className='text-2xl font-bold text-white'
-              style={{
-                textShadow: "0 0 8px rgba(255, 255, 255, 0.2)",
-                background: "linear-gradient(135deg, #fff, #a889ff, #fff)",
-                backgroundSize: "200% 200%",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                animation: "shimmer 3s ease-in-out infinite",
-              }}>
+            <h2 className='text-2xl font-bold text-white payment-gradient-text'>
               ✨ Payment Successful!
             </h2>
             
@@ -145,7 +135,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
               Your divine message is on its way!
             </p>
             
-            <div className='bg-white/5 border border-white/20 rounded-lg p-6 backdrop-blur-sm space-y-3'>
+            <div className='payment-form-card rounded-lg p-6 space-y-3'>
               <div className='flex items-center justify-center mb-3'>
                 <svg
                   className='w-5 h-5 text-purple-400 mr-2'
@@ -162,7 +152,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
                 <span className='text-white font-medium'>{customerEmail}</span>
               </p>
               
-              <div className='bg-yellow-500/10 border border-yellow-500/20 rounded-lg p-3 mt-4'>
+              <div className='payment-success-warning rounded-lg p-3 mt-4'>
                 <div className='flex items-center justify-center mb-2'>
                   <svg
                     className='w-4 h-4 text-yellow-400 mr-2'
@@ -184,25 +174,19 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
               </div>
             </div>
 
-            <div className='text-center pt-4'>
+            <div className='text-center pt-4 space-y-4'>
               <p className='text-white/70 text-sm italic'>
                 Thank you for your sacred exchange. May your message bring you clarity and peace. 🙏
               </p>
+              
+              <a
+                href='/'
+                className='inline-block text-white py-3 px-6 rounded-lg font-medium shadow-lg transition-all duration-200 payment-gradient-button'>
+                Ask more questions to her
+              </a>
             </div>
           </div>
         </div>
-
-        <style jsx>{`
-          @keyframes shimmer {
-            0%,
-            100% {
-              background-position: 0% 50%;
-            }
-            50% {
-              background-position: 100% 50%;
-            }
-          }
-        `}</style>
       </div>
     )
   }
@@ -212,17 +196,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
       <form onSubmit={handleSubmit} className='space-y-8 w-full'>
         {/* Header */}
         <div className='text-center pb-8'>
-          <h2
-            className='text-2xl font-bold text-white'
-            style={{
-              textShadow: "0 0 8px rgba(255, 255, 255, 0.2)",
-              background: "linear-gradient(135deg, #fff, #a889ff, #fff)",
-              backgroundSize: "200% 200%",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-              animation: "shimmer 3s ease-in-out infinite",
-            }}>
+          <h2 className='text-2xl font-bold text-white payment-gradient-text'>
             Complete Your Sacred Exchange
           </h2>
           <p className='text-sm text-white/70 font-light italic'>
@@ -246,8 +220,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
               placeholder='Enter your name'
               required
               autoComplete='name'
-              className='w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-400 text-white placeholder-white/40 backdrop-blur-sm text-center'
-              style={{ boxShadow: "0 0 8px rgba(255, 255, 255, 0.1)" }}
+              className='w-full px-4 py-3 payment-form-input rounded-lg shadow-sm text-white placeholder-white/40 backdrop-blur-sm text-center'
             />
           </div>
 
@@ -265,29 +238,18 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
               placeholder='Enter your email'
               required
               autoComplete='email'
-              className='w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-purple-400 text-white placeholder-white/40 backdrop-blur-sm text-center'
-              style={{ boxShadow: "0 0 8px rgba(255, 255, 255, 0.1)" }}
+              className='w-full px-4 py-3 payment-form-input rounded-lg shadow-sm text-white placeholder-white/40 backdrop-blur-sm text-center'
             />
           </div>
         </div>
 
         {/* Payment Element */}
-        <div
-          style={{
-            paddingTop: "1rem",
-          }}
-          className='space-y-4'>
+        <div className='space-y-4 pt-4'>
           <div className='text-center'>
-            <h3
-              style={{
-                marginBottom: "1rem",
-              }}
-              className='text-lg font-medium text-white/90'>
+            <h3 className='text-lg font-medium text-white/90 mb-4'>
               ✨ Payment Information
             </h3>
-            <div
-              className='bg-white/5 border border-white/20 rounded-lg p-4 backdrop-blur-sm'
-              style={{ boxShadow: "0 0 8px rgba(255, 255, 255, 0.1)" }}>
+            <div className='payment-form-card rounded-lg p-4'>
               <PaymentElement
                 options={{
                   paymentMethodOrder: ["card"],
@@ -304,14 +266,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
             id='pay-button'
             type='submit'
             disabled={!stripe || isProcessing}
-            className='w-full text-white py-4 px-6 rounded-lg font-medium shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden'
-            style={{
-              background: "linear-gradient(135deg, #a889ff, #c4b0ff, #a889ff)",
-              backgroundSize: "200% 200%",
-              animation: "gradient-shift 3s ease-in-out infinite",
-              boxShadow:
-                "0 4px 15px rgba(168, 137, 255, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.2)",
-            }}>
+            className='w-full text-white py-4 px-6 rounded-lg font-medium shadow-lg transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed relative overflow-hidden payment-gradient-button'>
             {isProcessing ? (
               <span className='flex items-center justify-center'>
                 <svg
@@ -347,7 +302,7 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
         )}
 
         {/* Security Info */}
-        <div className='text-xs text-white/60 text-center p-4 rounded-lg bg-white/5 border border-white/10 backdrop-blur-sm'>
+        <div className='text-xs text-white/60 text-center p-4 rounded-lg payment-security-info'>
           <div className='flex items-center justify-center mb-2'>
             <svg
               className='w-4 h-4 text-green-400 mr-2'
@@ -376,28 +331,6 @@ export const PaymentForm: React.FC<PaymentFormProps> = ({
           />
         </div>
       </form>
-
-      <style jsx>{`
-        @keyframes shimmer {
-          0%,
-          100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-
-        @keyframes gradient-shift {
-          0%,
-          100% {
-            background-position: 0% 50%;
-          }
-          50% {
-            background-position: 100% 50%;
-          }
-        }
-      `}</style>
     </div>
   )
 }

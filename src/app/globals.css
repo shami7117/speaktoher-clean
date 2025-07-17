@@ -1556,3 +1556,83 @@ Mystical Background Elements .mystical-orb {
   max-width: 600px;
   margin: 0 auto;
 }
+
+
+
+/* Payment Form Animations */
+@keyframes shimmer {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes gradient-shift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Payment Form Gradient Text */
+.payment-gradient-text {
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+  background: linear-gradient(135deg, #fff, #a889ff, #fff);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Payment Form Gradient Button */
+.payment-gradient-button {
+  background: linear-gradient(135deg, #a889ff, #c4b0ff, #a889ff);
+  background-size: 200% 200%;
+  animation: gradient-shift 3s ease-in-out infinite;
+  box-shadow: 0 4px 15px rgba(168, 137, 255, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.payment-gradient-button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(168, 137, 255, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.3);
+}
+
+/* Payment Form Input Styling */
+.payment-form-input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+.payment-form-input:focus {
+  outline: none;
+  ring: 2px;
+  ring-color: #a855f7;
+}
+
+/* Payment Form Card Container */
+.payment-form-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+}
+
+/* Success Message Styling */
+.payment-success-warning {
+  background: rgba(234, 179, 8, 0.1);
+  border: 1px solid rgba(234, 179, 8, 0.2);
+}
+
+.payment-security-info {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
